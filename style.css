@@ -41,8 +41,18 @@ header {
 }
 
 .logo {
-    font-size: 24px;
-    letter-spacing: 2px;
+    position: fixed;  
+    top: 24px;
+    left: 24px;
+    z-index: 1001;
+    width: 35px;      
+    height: auto;       
+}
+
+.logo img {
+    width: 100%;        
+    height: auto;      
+    display: block;
 }
 
 nav a {
