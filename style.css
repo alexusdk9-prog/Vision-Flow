@@ -160,3 +160,78 @@ footer {
     position: relative;
     z-index: 1;
 }
+
+/* ===== CTA FORM ===== */
+.cta-form {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Inputs & select */
+.cta-form input,
+.cta-form select {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    padding: 18px 22px;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    outline: none;
+    min-width: 220px;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.cta-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Select arrow fix (dark mode) */
+.cta-form select {
+    appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, #00ff99 50%),
+        linear-gradient(135deg, #00ff99 50%, transparent 50%);
+    background-position:
+        calc(100% - 22px) calc(50% - 3px),
+        calc(100% - 16px) calc(50% - 3px);
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+}
+
+/* Focus */
+.cta-form input:focus,
+.cta-form select:focus {
+    border-color: #00ff99;
+    background-color: rgba(0, 255, 153, 0.04);
+}
+
+/* Button – bruger din eksisterende .cta */
+.cta-form .cta {
+    cursor: pointer;
+}
+
+/* Status text */
+#formStatus {
+    width: 100%;
+    margin-top: 12px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .cta-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cta-form input,
+    .cta-form select,
+    .cta-form .cta {
+        width: 100%;
+    }
+}

@@ -22,7 +22,23 @@
     <div class="hero-text">
         <h1>Digital Solutions <br><span>That Move Your Brand.</span></h1>
         <p>Fast, functional, and designed to grow your business.</p>
-        <a href="#" class="cta">Get Started</a>
+
+        <!-- CTA FORM -->
+        <form id="vfForm" class="cta-form">
+            <input name="name" placeholder="Navn" required>
+            <input name="email" type="email" placeholder="Email" required>
+
+            <select name="role" required>
+                <option value="">Vælg rolle</option>
+                <option value="Engineer">Engineer</option>
+                <option value="Doctor">Doctor</option>
+                <option value="Student">Student</option>
+            </select>
+
+            <button type="submit" class="cta">Get Started</button>
+        </form>
+
+        <p id="formStatus" style="margin-top:12px;"></p>
     </div>
 </section>
 
@@ -30,6 +46,36 @@
     Vision Flow. Built to Elevate Your Online Presence.<br><br>
     © 2026 Vision Flow. All Rights Reserved.
 </footer>
+
+<!-- FORM SCRIPT -->
+<script>
+document.getElementById("vfForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const status = document.getElementById("formStatus");
+    status.textContent = "Sender...";
+
+    const data = Object.fromEntries(new FormData(e.target));
+
+    try {
+        const res = await fetch(
+            "http://localhost:5678/webhook-test/vision-flow-form",
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            }
+        );
+
+        const result = await res.json();
+        status.textContent = result.message || "Tak! Vi kontakter dig snart.";
+        e.target.reset();
+
+    } catch (err) {
+        status.textContent = "Noget gik galt. Prøv igen.";
+    }
+});
+</script>
 
 </body>
 </html>
