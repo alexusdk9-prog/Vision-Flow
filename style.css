@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+html, body {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    background-color: #0b0f14;
+    color: #fff;
+    position: relative;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(#ffffff14 1px, transparent 1px),
+        radial-gradient(circle at 15% 20%, #00ff990f, transparent 45%),
+        radial-gradient(circle at 85% 80%, #00cfff0f, transparent 45%);
+    background-size:
+        22px 22px,
+        100% 100%,
+        100% 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 64px;
+}
+
+.logo {
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+nav a {
+    margin-left: 32px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    opacity: 0.65;
+    position: relative;
+    transition: opacity 0.2s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: width 0.2s ease;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 96px 64px 64px;
+}
+
+.hero-text {
+    max-width: 2000px;
+}
+
+.hero-text h1 {
+    font-size: 76px;
+    line-height: 1.03;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+}
+
+.hero-text span {
+    color: #00ff99;
+}
+
+.hero-text p {
+    font-size: 18px;
+    letter-spacing: 2px;
+    opacity: 0.75;
+    margin-bottom: 48px;
+}
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 56px;
+    border-radius: 999px;
+    border: 1px solid #00ff99;
+    background: transparent;
+    color: #00ff99;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    transition:
+    opacity 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.cta:hover {
+    background-color: #00ff99;
+    opacity: 0.9;
+    color: black;
+}
+
+.hero-visual {
+    font-size: 180px;
+    letter-spacing: 14px;
+    user-select: none;
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.045);
+}
+
+footer {
+    padding: 48px 64px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.45;
+}
+
+header,
+.hero,
+footer {
+    position: relative;
+    z-index: 1;
+}
